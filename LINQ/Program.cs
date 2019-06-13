@@ -51,7 +51,7 @@ namespace LINQ
             // Console.WriteLine(String.Join(",", "aaa;abb;ccc;dap".Split(';').Where(f => f.Contains("a"))));
 
             //5. Output number of letters 'a' in the words with this letter in string "aaa;abb;ccc;dap" separated by comma
-            //Console.WriteLine(String.Join(",", "aaa;abb;ccc;dap".Split(';').Count(f => f.Contains("a"))));  ?????
+            //Console.WriteLine(String.Join(",", "aaa;abb;ccc;dap".Split(';').Select(f => f.Count(x => x == 'a'))));  
 
             //6. Output true if word "abb" exists in line  "aaa;xabbx;abb;ccc;dap", otherwise false
             //Console.WriteLine(String.Join(",", "aaa;xabbx;abb;ccc;dap").Split(';').Contains("abb"));
@@ -66,7 +66,8 @@ namespace LINQ
             //Console.WriteLine("baaa;aabb;xabbx;abb;ccc;dap;zh".Split(';').First(item => item.Length == "baaa;aabb;xabbx;abb;ccc;dap;zh".Split(';').Min(f => f.Length)));
 
             //10. Print true if in the first word that starts from "aa" all letters are 'a' otherwise false "baaa;aabb;xabbx;abb;ccc;dap;zh"
-            //Console.WriteLine("baaa;aabb;xabbx;abb;ccc;dap;zh".Split(';'). ????
+            // Console.WriteLine(String.Join(",", "baaa;aabb;xabbx;abb;ccc;dap;zh".Split(';').FirstOrDefault(x => x.IndexOf("aa") == 0).Select(f => f)));
+
 
             //11. Print last word in sequence that excepting first two elements that ends with "bb"
 
@@ -107,7 +108,7 @@ namespace LINQ
             //Console.WriteLine(string.Join(Environment.NewLine, data.OfType<Film>().SelectMany(f => f.Actors).OrderBy(f => f.Birthdate).Select(f => f.Name).Take(2)));
 
             //5. Output number of books per authors
-            //Console.WriteLine(string.Join(Environment.NewLine, data.OfType<Book>().GroupBy(f => f.Author).SelectMany(f => f.Key + " : " + f.Count())));
+            //Console.WriteLine(string.Join(Environment.NewLine, data.OfType<Book>().GroupBy(f => f.Author).Select(f => f.Key + " : " + f.Count())));
 
             //6. Output number of books per authors and films per director
             //Console.WriteLine(string.Join(Environment.NewLine, data.OfType<ArtObject>().GroupBy(f => f.Author).Select(f => f.Key + " : " + f.Count())));
@@ -122,7 +123,7 @@ namespace LINQ
             /////////////// 
 
             //10. Output sum of total number of pages in all books and all int values inside all sequences in data
-            Console.WriteLine(string.Join(Environment.NewLine, data.OfType<Book>().Select(f => f.Pages).Sum() + " " + data.OfType<IEnumerable<int>>().SelectMany(f => f.OfType<int>()).Sum()));
+            //Console.WriteLine(string.Join(Environment.NewLine, data.OfType<Book>().Select(f => f.Pages).Sum() + " " + data.OfType<IEnumerable<int>>().SelectMany(f => f.OfType<int>()).Sum()));
 
             //11. Get the dictionary with the key - book author, value - list of author's books
             ////////////////////////////   
